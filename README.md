@@ -7,7 +7,7 @@ Simple REST API with data persisted in Cassandra, setup as a docker container
 # Cassandra
 - Go to http://hub.docker.com/
 - Search for Cassandra, and identify the version you'll use for example 3.11.2
-- At a comamnd prompt, enter:
+- At a command prompt, enter:
 ```
 docker pull cassandra:3.11.2
 ```
