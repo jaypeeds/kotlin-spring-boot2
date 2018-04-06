@@ -3,9 +3,9 @@ Simple REST API with data persisted in Cassandra, setup as a docker container
 
 # Docker setup
 - Setup docker for your desktop
-- Go to http://hub.docker.com/
 
 # Cassandra
+- Go to http://hub.docker.com/
 - Search for Cassandra, and identify the version you'll use for example 3.11.2
 - At a comamnd prompt, enter:
 ```
