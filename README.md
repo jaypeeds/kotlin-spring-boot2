@@ -55,3 +55,9 @@ demo-cassandra      latest              3ee5ac61f7b6        11 seconds ago      
 cassandra           3.11.2              c6b513da2ff3        3 weeks ago         323MB
 cassandra           latest              c6b513da2ff3        3 weeks ago         323MB
 ```
+
+# Stop and cleanup
+```
+$ docker kill 7950adb94b49
+$ docker rm 7950adb94b49
+```
