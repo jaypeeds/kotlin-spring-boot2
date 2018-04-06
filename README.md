@@ -9,26 +9,26 @@ Simple REST API with data persisted in Cassandra, setup as a docker container
 - Search for Cassandra, and identify the version you'll use for example 3.11.2
 - At a command prompt, enter:
 ```
-docker pull cassandra:3.11.2
+$ docker pull cassandra:3.11.2
 ```
 # Docker startup
 Make sure docker daemon is running on your desktop
 
 # Cassandra container startup
 ```
-docker run --name cassandra -p 9042:9042 cassandra:3.11.2
+$ docker run --name cassandra -p 9042:9042 cassandra:3.11.2
 ```
 Note: The name cassandra might be already use, so ignore the option or change the name
 
 # Cassandra command line console launch (aka cqlsh)
 ```
-docker exec -it cassandra cqlsh
+$ docker exec -it cassandra cqlsh
 ```
 Note: In the above, cassandra name might be already used so you need to enter 'docker ps' to identify started containers and use the short hex id in place of cassandra.
 
 # Cassandra schema creation
 ```
-docker exec -it 7950adb94b49 cqlsh
+$ docker exec -it 7950adb94b49 cqlsh
 Connected to Test Cluster at 127.0.0.1:9042.
 [cqlsh 5.0.1 | Cassandra 3.11.2 | CQL spec 3.4.4 | Native protocol v4]
 Use HELP for help.
@@ -44,4 +44,14 @@ cqlsh:hr> SELECT * FROM employee;
 
 (1 rows)
 cqlsh:hr>
+```
+
+# Save locally your changes to image
+```
+$ docker commit 7950adb94b49 demo-cassandra
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+demo-cassandra      latest              3ee5ac61f7b6        11 seconds ago      324MB
+cassandra           3.11.2              c6b513da2ff3        3 weeks ago         323MB
+cassandra           latest              c6b513da2ff3        3 weeks ago         323MB
 ```
