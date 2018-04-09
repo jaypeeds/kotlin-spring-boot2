@@ -18,7 +18,7 @@ Make sure docker daemon is running on your desktop
 ```
 $ docker run --name cassandra -p 9042:9042 cassandra:3.11.2
 ```
-Note: The name cassandra might be already use, so ignore the option or change the name
+Note: The name cassandra might be already used, so ignore the option or change the name. See docker ps -aq, docker kill, docker rm commands to resolve the conflicts.
 
 # Cassandra command line console launch (aka cqlsh)
 ```
