@@ -62,3 +62,41 @@ cassandra           latest              c6b513da2ff3        3 weeks ago         
 $ docker kill 7950adb94b49
 $ docker rm 7950adb94b49
 ```
+# Using a volume or data-only container
+- Create a logical volume
+```
+$ docker volume create db-setup
+```
+- Run a container and mount the volume at /db-setup mountpoint.
+```
+$ docker run -d -p9042:9042 --name democass --mount source=db-setup,target=/db-setup demo-cassandra
+```
+- Copy a script from desktop to mounted volume
+```
+$ docker container cp \desktop\path\to\db-init.sql democass:/db-setup
+```
+- Invoke cqlsh to run the script and prepare the schema
+```
+$ docker exec -it democass cqlsh -f /db-setup/db-init.sql
+```
+- Stop the container
+```
+$ docker kill democass
+```
+- Restart it and continue working with prepared database schema
+```
+$ docker start democass
+$ docker exec -it democass cqlsh
+Connected to Test Cluster at 127.0.0.1:9042.
+[cqlsh 5.0.1 | Cassandra 3.11.2 | CQL spec 3.4.4 | Native protocol v4]
+Use HELP for help.
+cqlsh> use hr;
+cqlsh:hr> select * from employee;
+
+ id | age | department | name | salary
+----+-----+------------+------+--------
+
+(0 rows)
+cqlsh:hr>
+```
+
