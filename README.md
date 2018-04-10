@@ -47,6 +47,7 @@ cqlsh:hr>
 ```
 
 # Save locally your changes to image
+Note: This does not work for data. A data container should be used instead.
 ```
 $ docker commit 7950adb94b49 demo-cassandra
 $ docker images
