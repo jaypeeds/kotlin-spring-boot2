@@ -46,7 +46,7 @@ cqlsh:hr> SELECT * FROM employee;
 cqlsh:hr>
 ```
 
-# Save locally your changes to image
+# Save locally your changes to container
 Note: This does not work for data. A data container should be used instead.
 ```
 $ docker commit 7950adb94b49 demo-cassandra
