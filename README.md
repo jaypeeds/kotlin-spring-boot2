@@ -99,4 +99,9 @@ cqlsh:hr> select * from employee;
 (0 rows)
 cqlsh:hr>
 ```
-
+- Stop the container, remove it, as well as the volume
+```
+$ docker kill democass
+$ docker rm democass
+$ docker volume rm db-setup
+```
